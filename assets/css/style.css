@@ -423,7 +423,10 @@ section {
   font-size: 26px;
   color: #728394;
 }
-
+.perfil-img{
+  height: 300px;
+  width: 300px;
+}
 .about .content ul {
   list-style: none;
   padding: 0;
@@ -497,7 +500,10 @@ section {
   margin-bottom: 20px;
   color: #45505b;
 }
-
+.cv-link{
+  font-weight: bold;
+  font-size: 20px;
+}
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
