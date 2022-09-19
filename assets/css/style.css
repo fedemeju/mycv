@@ -289,11 +289,12 @@ h6 {
 
 .hero-container{}
 #hero {
+  position: relative;
   width: 100vw;
   height: 100vh;
   background: url("../img/perfil2.jpg") left no-repeat;
   background-size: cover;
-  position: relative;
+ 
 }
 
 @media (min-width: 992px) {
