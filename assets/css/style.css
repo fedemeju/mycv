@@ -5,6 +5,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
+  overflow-x: hidden;
 }
 
 :root{
@@ -287,16 +288,27 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 
-.hero-container{}
-#hero {
-  position: relative;
-  width: 100vw;
+.hero-container{
+
   height: 100vh;
-  background: url("../img/perfil2.jpg") left no-repeat;
-  background-size: cover;
- 
+  top: 0;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+
 }
 
+
+
+#hero {
+  width: 100vw;
+  margin: 0;
+  padding-top: 0;
+}
+
+.heroCont{
+  min-height: 100vh;
+}
 @media (min-width: 992px) {
   #hero {
     padding-left: 160px;
@@ -305,7 +317,7 @@ h6 {
 
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.8);
+  /* background: rgba(255, 255, 255, 0.8); */
   position: absolute;
   bottom: 0;
   top: 0;
@@ -370,9 +382,20 @@ h6 {
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
+body{
+  display: inline-block;
+}
+canvas{
+  display: block;
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  z-index: -1;
+}
 section {
   padding: 60px 0;
   overflow: hidden;
+  display: flex;
 }
 
 .section-title {
@@ -456,8 +479,10 @@ section {
 
 
 /*--------------------------------------------------------------
-# Akills
+# Skills
 --------------------------------------------------------------*/
+
+
 .skills .progress {
   height: 60px;
   display: block;
