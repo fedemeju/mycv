@@ -13,7 +13,7 @@ window.addEventListener('resize', () =>{
   renderer.setSize(window.innerWidth,window.innerHeight);
   camera.aspect = window.innerWidth/window.innerHeight;
 
-  camera.updateProyectionMatrix();
+  camera.updateProjectionMatrix();
 })
 
 window.addEventListener('resize', () => {
@@ -24,10 +24,13 @@ window.addEventListener('resize', () => {
 })
 
 
-//   creo y agrego la esfera a la escena
-//   var geometry = new THREE.SphereGeometry(1, 100 ,100);
-//   var material = new THREE.MeshLambertMaterial({color: 0xFFCC00});
-//   var mesh = new THREE.Mesh(geometry,material
+  // var geometry = new THREE.SphereGeometry(0.5, 100 ,100);
+  // var material = new THREE.MeshLambertMaterial({color: 0xFFCC00});
+  // var mesh = new THREE.Mesh(geometry,material);
+  // mesh.position.x = (Math.random() -0.5) *10;
+  // mesh.position.y = (Math.random() -0.5) *10;
+  // mesh.position.z = (Math.random() -0.5) *10;
+  // scene.add(mesh);
 
 
 
@@ -69,6 +72,7 @@ scene.add(mesh);
 //   mesh.scale.set(3,1,1)
 
 
+
 var light = new THREE.PointLight(0xFFFFFF,1,1000);
 light.position.set(0,0,0);
 scene.add(light);
@@ -95,13 +99,25 @@ function onMouseMove(event) {
 
   raycaster.setFromCamera(mouse, camera);
 
+  var counter = 0;
+
   var intersects = raycaster.intersectObjects(scene.children, true);
   for (var i = 0; i < intersects.length; i++) {
-      this.tl = new TimelineMax();
-      this.tl.to(intersects[i].object.scale, 1, {x: 2, ease: Expo.easeOut})
-      this.tl.to(intersects[i].object.scale, .5, {x: .5, ease: Expo.easeOut})
-      this.tl.to(intersects[i].object.position, (Math.random() -0.5) *20, {x: 2, ease: Expo.easeOut})
-      this.tl.to(intersects[i].object.rotation, .5, {y: Math.PI*.5, ease: Expo.easeOut}, "=-1.5")
+      if(counter % 2 == 0){
+          this.tl = new TimelineMax();
+          this.tl.to(intersects[i].object.scale, 1, {x: 2, ease: Expo.easeOut})
+          this.tl.to(intersects[i].object.scale, .5, {x: .5, ease: Expo.easeOut})
+          this.tl.to(intersects[i].object.position, .5, {x: 2, ease: Expo.easeOut})
+          this.tl.to(intersects[i].object.rotation, .5, {y: Math.PI*.5, ease: Expo.easeOut}, "=-1.5")
+      }else{
+        this.tl = new TimelineMax();
+        this.tl.to(intersects[i].object.scale, 1, {y: 2, ease: Expo.easeOut})
+        this.tl.to(intersects[i].object.position, .5, {y: 2, ease: Expo.easeOut})
+        this.tl.to(intersects[i].object.position, .5, {x: -2, ease: Expo.easeOut})
+
+      }
+      counter += 1;
+     
   }
 }
 

@@ -10,6 +10,7 @@ body {
 
 :root{
   --color: rgb(243, 163, 88);
+  --sombra: 7px 7px 9px -5px rgba(94,94,94,0.67);
 }
 
 a {
@@ -450,6 +451,9 @@ section {
 .perfil-img{
   height: 300px;
   width: 300px;
+  box-shadow: var(--sombra);
+  text-align: center;
+
 }
 .about .content ul {
   list-style: none;
@@ -625,6 +629,7 @@ section {
   overflow: hidden;
   z-index: 1;
   background: rgba(69, 80, 91, 0.8);
+  box-shadow: var(--sombra);
 }
 
 .portfolio .portfolio-wrap::before {
