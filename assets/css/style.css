@@ -383,9 +383,7 @@ h6 {
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
-body{
-  display: inline-block;
-}
+
 canvas{
   display: block;
   position: absolute;
@@ -587,6 +585,9 @@ section {
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Portfolio
+--------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
@@ -629,7 +630,7 @@ section {
   overflow: hidden;
   z-index: 1;
   background: rgba(69, 80, 91, 0.8);
-  box-shadow: var(--sombra);
+  max-height: 200px;
 }
 
 .portfolio .portfolio-wrap::before {
